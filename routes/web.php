@@ -26,3 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/crawler-data', "TestController@index")->name('test');
 
 Route::get('/gg-drive', "TestController@testGoogleDrive")->name('test');
+Route::get('/test', function(){
+	return view('layouts.master');
+});
