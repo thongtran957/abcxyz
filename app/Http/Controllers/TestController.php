@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Goutte\Client;
 use Symfony\Component\HttpClient\HttpClient;
-
+use App\Helpers\GoogleDrive;
 
 class TestController extends Controller
 {
@@ -72,5 +72,11 @@ class TestController extends Controller
 		   	$content = trim($node->html());
 		   	//luu db
 		});
+    }
+
+    //test connect with gg drive
+    public function testGoogleDrive(){
+        \Storage::cloud()->put('test.txt', 'Hello World');
+        return 'File was saved to Google Drive';
     }
 }
