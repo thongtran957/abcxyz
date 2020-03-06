@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.index');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'reset' => false ]);
 
 Route::get('/crawler-data', "TestController@index")->name('test');
 
