@@ -15,17 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['register' => false]);
 
 Route::get('/crawler-data', "TestController@index")->name('test');
 
 Route::get('/gg-drive', "TestController@testGoogleDrive")->name('test');
-Route::get('/test', function(){
-	return view('layouts.master');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
 });
